@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "capitol-ledger-mcp"
+version = "0.1.0"
+description = "Read-only congressional stock disclosure research for AI agents via Capitol Ledger"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Capitol Ledger", email = "hello@capitol-ledger.com"}]
+keywords = ["mcp", "congressional-trading", "stock-disclosures", "house", "research", "capitol-ledger"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Office/Business :: Financial",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = ["mcp>=1.20,<2", "httpx>=0.27,<1"]
+
+[project.urls]
+Homepage = "https://capitol-ledger.com/agents"
+Documentation = "https://capitol-ledger.com/agents.md"
+Repository = "https://github.com/joalbrecht/capitol-ledger-mcp"
+Issues = "https://github.com/joalbrecht/capitol-ledger-mcp/issues"
+
+[project.scripts]
+capitol-ledger-mcp = "capitol_ledger_mcp:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.8,<1"]
+
+[tool.setuptools]
+py-modules = ["capitol_ledger_mcp"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

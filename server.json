@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.joalbrecht/capitol-ledger-mcp",
+  "title": "Capitol Ledger",
+  "description": "Read-only House stock disclosures and synthetic portfolio research. Approved pilot key required.",
+  "repository": {"url": "https://github.com/joalbrecht/capitol-ledger-mcp", "source": "github"},
+  "version": "0.1.0",
+  "websiteUrl": "https://capitol-ledger.com/agents",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "capitol-ledger-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "transport": {"type": "stdio"},
+      "environmentVariables": [
+        {"name": "CAPITOL_LEDGER_API_KEY", "description": "API key issued after pilot approval at https://capitol-ledger.com/agents#pilot", "isRequired": true, "isSecret": true, "format": "string"},
+        {"name": "CAPITOL_LEDGER_API_URL", "description": "Capitol Ledger HTTPS API origin", "default": "https://capitol-ledger.com", "format": "string"}
+      ]
+    }
+  ]
+}
