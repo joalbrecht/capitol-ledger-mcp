@@ -115,6 +115,19 @@ product database. API calls require HTTPS except for local development; redirect
 are not followed with credentials. Keys are environment credentials, not tool inputs.
 Model inference runs in your MCP client; this adapter only retrieves research data.
 
+## Container option
+
+A non-root container is included for directory safety/quality checks and clients
+that prefer Docker. Pass credentials at runtime; they are never baked into the image.
+
+```sh
+docker build -t capitol-ledger-mcp .
+docker run --rm -i -e CAPITOL_LEDGER_API_KEY -e CAPITOL_LEDGER_API_URL capitol-ledger-mcp
+```
+
+Use `-i` for MCP stdio; do not allocate a TTY. Starting the server and listing its
+tools do not require a key, but data calls do.
+
 ## Development
 
 ```sh
