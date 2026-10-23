@@ -6,6 +6,8 @@ explain portfolio changes with source and timing context.
 
 [Request pilot access](https://capitol-ledger.com/agents#pilot) ·
 [API documentation](https://capitol-ledger.com/agents.md) ·
+[PyPI package](https://pypi.org/project/capitol-ledger-mcp/) ·
+[Official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.joalbrecht/capitol-ledger-mcp) ·
 [Public fictional sample](https://capitol-ledger.com/api/agents/sample) ·
 [Methodology](https://capitol-ledger.com/methodology)
 
@@ -24,15 +26,23 @@ the response shape; it is not a real disclosure or live data.
 
 ## Install
 
-Python **3.12 or later** is required. Install from this public repository:
+Python **3.12 or later** is required. Install the published PyPI package:
+
+```sh
+pip install capitol-ledger-mcp
+```
+
+Or run without a permanent installation:
+
+```sh
+uvx --from capitol-ledger-mcp capitol-ledger-mcp
+```
+
+To install from this public repository instead:
 
 ```sh
 pip install 'git+https://github.com/joalbrecht/capitol-ledger-mcp.git'
 ```
-
-The package name for the PyPI release is `capitol-ledger-mcp`. After that release
-is available, install with `pip install capitol-ledger-mcp` or run with
-`uvx --from capitol-ledger-mcp capitol-ledger-mcp`.
 
 ## Connect your MCP client
 
@@ -56,7 +66,7 @@ Replace the placeholder locally and keep the key in your client's secret store.
 Do not put it in a shared prompt, URL, issue, or public repository. If your client
 cannot find the command, use its absolute installation path.
 
-A client using `uvx` after the PyPI release can instead use `"command": "uvx"` and
+A client using `uvx` can instead use `"command": "uvx"` and
 `"args": ["--from", "capitol-ledger-mcp", "capitol-ledger-mcp"]`, with the same env.
 This is a **local stdio server** that calls a hosted HTTPS API. It is not a hosted
 remote MCP endpoint. No broker or trading-account credentials are needed.
